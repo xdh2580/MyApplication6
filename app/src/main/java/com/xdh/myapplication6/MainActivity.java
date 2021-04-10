@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.button_register:
-//                Intent intent = new Intent(this,RegisterActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(this,RegisterActivity.class);
+                startActivity(intent);
                 break;
             case R.id.button_test:
                 StringBuilder sb = new StringBuilder();
