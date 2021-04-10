@@ -16,6 +16,8 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
 
     }
 
+    
+    //mod some
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
