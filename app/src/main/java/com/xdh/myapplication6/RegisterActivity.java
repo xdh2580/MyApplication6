@@ -1,6 +1,9 @@
 package com.xdh.myapplication6;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +39,15 @@ public class RegisterActivity extends AppCompatActivity {
                 if(!password1.equals(password2)){
                     Toast.makeText(RegisterActivity.this, "p1:"+password1+" p2:"+password2, Toast.LENGTH_SHORT).show();
                 }else {
+                    MyDBOpenHelper myDBOpenHelper = new MyDBOpenHelper(RegisterActivity.this,"mydb",null,1);
+                   SQLiteDatabase db = myDBOpenHelper.getWritableDatabase();
+                    ContentValues values1 = new ContentValues();
+                    values1.put("user_id", "004" );
+                    values1.put("name", name );
+                    values1.put("password", password1 );
+                    //参数依次是：表名，强行插入null值得数据列的列名，一行记录的数据
+                    db.insert("user", null, values1);
+                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);
                 }

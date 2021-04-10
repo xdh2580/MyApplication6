@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     do {
                         int pid = cursor.getInt(cursor.getColumnIndex("user_id"));
                         String name = cursor.getString(cursor.getColumnIndex("name"));
-                        sb.append("id：" + pid + "\t\tname：" + name + "\n");
+                        String password =cursor.getString(cursor.getColumnIndex("password"));
+                        sb.append("id：" + pid + "\t\tname：" + name + "\t\tpassword:"+password+"\n");
                     } while (cursor.moveToNext());
                 }
                 cursor.close();
